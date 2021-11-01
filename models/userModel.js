@@ -14,6 +14,12 @@ const users = [
   },
 ];
 
+// TODO tee funktio, joka palauttaa yhden käyttäjän id:n perusteella
+const getUser = (id) => {
+  return users.find((user) => user.id === id);
+};
+
 module.exports = {
   users,
+  getUser,
 };
