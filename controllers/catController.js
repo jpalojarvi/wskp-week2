@@ -2,17 +2,21 @@
 // catController
 const catModel = require('../models/catModel');
 
-const { get } = require('../routes/catRoute');
+// const { get } = require('../routes/catRoute');
 
 // const cats = catModel.cats;
-const {cats , getCat} = catModel;
+const {getAllCats , getCat} = catModel;
 
-const cat_list_get = (req, res) => {
-  res.json(cats);
+const cat_list_get = async (req, res) => {
+  try { 
+    res.json(await getAllCats());
+  } catch (e) {
+    console.log('cat_list_get error', e.message);
+  }
 };
 
-const cat_get = (req, res) => {
-  const vastaus = getCat(req.params.id);
+const cat_get = async (req, res) => {
+  const vastaus = await getCat(req.params.id);
   res.json(vastaus);
 }
 
