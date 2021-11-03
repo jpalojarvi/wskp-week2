@@ -9,23 +9,39 @@ const getAllCats = async (next) => {
     const [rows] = await promisePool.execute('SELECT * FROM wop_cat');
     return rows;
   } catch (e) {
-    console.error('error', e.message);
-    httpError('Database error', 500);
+    console.error('getAllCats error', e.message);
+    next(httpError('Database error', 500));
   }
 };
 
 const getCat = async (id, next) => {
   try {
-    // TODO: do the LEFT (or INNER) JOIN to get owner's name as ownername (from wop_user table).
-    const [rows] = await promisePool.execute('SELECT * FROM wop_cat WHERE cat_id= ?', [id]);
+    const [rows] = await promisePool.execute(
+      'SELECT * FROM wop_cat WHERE cat_id = ?',
+      [id]
+    );
     return rows;
   } catch (e) {
     console.error('getCat error', e.message);
-    httpError('Database error', 500);
+    next(httpError('Database error', 500));
+  }
+};
+
+const addCat = async (name, weight, owner, filename, birthdate, next) => {
+  try {
+    const [rows] = await promisePool.execute(
+      'INSERT INTO wop_cat (name, weight, owner, filename, birthdate) VALUES (?, ?, ?, ?, ?)' 
+      [name, weight, owner, filename, birthdate]
+    );
+    return rows;
+  } catch (e) {
+    console.error('addCat error', e.message);
+    next(httpError('Database error', 500));
   }
 };
 
 module.exports = {
   getAllCats,
-  getCat
+  getCat,
+  addCat
 };

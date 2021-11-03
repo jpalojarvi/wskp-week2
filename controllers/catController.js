@@ -1,18 +1,15 @@
 'use strict';
 // catController
 const catModel = require('../models/catModel');
+const { getAllCats, getCat } = catModel;
 const { httpError } = require('../utils/errors');
 
-// const { get } = require('../routes/catRoute');
-
 // const cats = catModel.cats;
-const {getAllCats , getCat} = catModel;
-
 const cat_list_get = async (req, res, next) => {
-  try { 
+  try {
     const cats = await getAllCats(next);
-    if(cats.length > 0) {
-    res.json(cats);
+    if (cats.length > 0) {
+      res.json(cats);
     } else {
       next('No cats found', 404);
     }
@@ -24,21 +21,25 @@ const cat_list_get = async (req, res, next) => {
 
 const cat_get = async (req, res, next) => {
   try {
-  const vastaus = await getCat(req.params.id, next);
-  if (vastaus.length > 0) {
-  res.json(vastaus);
-  } else {
-    next(httpError('No cat found', 404));
+    const vastaus = await getCat(req.params.id, next);
+    if (vastaus.length > 0) {
+      res.json(vastaus.pop());
+    } else {
+      next(httpError('No cat found', 404));
     }
   } catch (e) {
     console.log('cat_get error', e.message);
     next(httpError('internal server error', 500));
   }
-}
+};
 
-const cat_post = (req, res) => {
-  console.log(req.body, req.file);
-  res.send('From this endpoint you can add cats.');
+const cat_post = async (req, res, next) => {
+  try {
+    console.log(req.body, req.file);
+    res.send('From this endpoint you can add cats.');
+  } catch (e) {
+  }
+
 };
 
 module.exports = {
