@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Positioning Items</title>
+	<meta charset="UTF-8">
+	<style>  
+         
+        /*////////////////////
+        // Positioning items    
+        //////////////////////
+        
+        Reset *
+        Display: inline vs block
+        https://www.w3schools.com/cssref/pr_class_display.asp
+    
+        Box-sizing
+        https://www.w3schools.com/css/css3_box-sizing.asp
+        
+        Using percentages and max-width
+        https://www.w3schools.com/cssref/css_units.asp
+    
+        Float and clear
+        https://www.w3schools.com/cssref/pr_class_float.asp
+        
+        Flexbox - https://www.w3schools.com/css/css3_flexbox.asp
+        
+        Absolute/Relative positioning
+        https://www.w3schools.com/cssref/pr_class_position.asp
+          
+        Centering
+        https://www.w3schools.com/css/css_align.asp
+        
+        */
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+    
+        .box {
+            height: 100px;
+            width: 100px;
+            padding: 5px;
+            border: 1px solid black;
+            color: aliceblue;
+            float: left;
+            width: 20%;
+            text-align: center;
+            padding-top: 40px;
+        }
+        
+        #red { background-color: red;}
+        #green { background-color: green;}
+        #blue { background-color: blue;}
+        #yellow { background-color: yellow; color: black;}
+        #orange { background-color: orange;}
+      
+        .clear { 
+            clear: both;}
+
+        /* img */
+        img {
+        }
+        
+        /* container */
+        .container {           
+        }
+        
+        /* relative and absolute positioning with blue */      
+        #blue {
+        }
+
+        .luokka {
+            color: orange;
+        }
+
+        #info {
+            color: yellow;
+        }
+
+        p {
+            color: red;
+            color: blue;
+        }
+
+        h1 {
+            display: block;
+        }
+
+        main {
+            background-color: grey;
+            width: 50%;
+            margin: 10px auto;
+        }
+
+        #sale {
+            background-color: pink;
+        }
+
+        .mango {
+            height: 50px;
+            width: 100px;
+            float: right;
+        }
+
+        nav {
+            overflow: hidden;
+            background-color: cyan;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+
+        #pieni {
+            width: 50%;
+        }
+
+        .bigbox {
+            height: 400px; height: 400px; background-color: yellow;
+            margin-top: 60px;
+            margin: auto;
+            position: relative;
+        }
+
+        #mini1 {
+            height: 73px;
+            width: 73px;
+            background-color: green;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            bottom: 0;
+            right: 0;
+        }
+
+        #mini2 {
+            height: 73px;
+            width: 73px;
+            background-color: firebrick;
+
+        }
+
+    </style>
+    </head>
+
+<body>
+
+    <nav>
+        <div class="box" id="red">Box 1</div>  
+        <div class="box" id="green">Box 2</div> 
+        <div class="box" id="blue">Box 3</div>  
+        <div class="box" id="yellow">Box 4</div>  
+        <div class="box" id="orange">Box 5</div>
+
+        
+    </nav>
+
+    <main>
+        <div class="bigbox">
+            <div id="mini1">1</div>
+            <div id="mini2">2</div>
+        </div>
+
+    <!-- Float continues, clearing -->
+
+    <h1>Heading 1</h1><h1>Heading 2</h1>
+    
+
+    <p id="pieni">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ante metus, tristique nec fringilla id, bibendum at libero. Etiam non ex non dui venenatis tristique. Phasellus aliquet urna eget orci facilisis lobortis. Nullam eget lobortis ipsum. Aliquam accumsan mauris orci, at suscipit tellus aliquet nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sed leo velit. Etiam massa ex, fermentum ut elit eget, blandit fringilla lacus. Morbi eget diam volutpat, tempus nibh eget, blandit metus. Vestibulum quis commodo nisi, eu faucibus eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+    <p class="luokka" id="info">Curabitur in est luctus, <span id="sale">malesuada leo ut,</span> sodales arcu. Aenean tristique finibus ligula. Morbi pellentesque pretium elit eu suscipit. Aliquam placerat fermentum eros, a ultrices dui lacinia condimentum. Duis sit amet dictum erat. Sed eu consequat enim. Pellentesque eget ipsum vel arcu cursus vestibulum. Integer blandit id nisl sit amet fermentum. Nunc sapien nisi, pellentesque id nunc in, pharetra dignissim libero. Vivamus viverra sit amet quam ut consectetur. Quisque ullamcorper ex ut purus vehicula malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed lacinia finibus leo sit amet sagittis. Maecenas consequat purus et volutpat lobortis. Aenean dignissim varius finibus.</p>
+        <img src="https://images.heb.com/is/image/HEBGrocery/prd-small/fresh-large-mangos-nbsp--000321109.jpg" alt="Mango" class="mango"></img>
+    <p class="luokka">Vestibulum nibh libero, ultrices sed massa sit amet, dictum porta justo. Etiam facilisis venenatis imperdiet. Vestibulum purus mi, porta vel sollicitudin eu, luctus eget eros. Quisque blandit tristique risus, ut tincidunt ante fermentum ac. Cras mi risus, dictum sit amet lectus at, volutpat consectetur nisi. Nunc eu laoreet tortor. Cras metus urna, fringilla vitae urna et, fringilla dignissim erat. In dui nulla, vulputate eget urna vitae, dignissim malesuada tellus.</p>
+    </main>
+
+    <!-- Responsive images and centering -->  
+     
+    <ul>
+        <li>Omena</li>
+        <li>Päärynä</li> 
+
+    </ul>
+
+</body>
+</html>

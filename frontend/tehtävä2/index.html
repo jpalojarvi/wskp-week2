@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Media Sharing App</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        box-sizing: border-box;
+        font-size: 1rem;
+      }
+
+      main {
+        height: 100vh;
+      }
+
+      body {
+        margin: 0;
+      }
+      #left {
+        background-color: white;
+        float: left;
+        width: 50%;
+        height: 100vh;
+        position: relative;
+      }
+
+      #right {
+        background-color: grey;
+        width: 50%;
+        height: 100vh;
+        position: relative;
+        display: flex;
+      }
+
+      #doggo {
+        width: 50%;
+        margin: auto;
+        border: 1px solid black;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      #image {
+        width: 100%;
+      }
+
+      #sydan {
+        text-align: center;
+      }
+
+      #appcard {
+        text-align: center;
+        background-color: green;
+        width: 50%;
+        margin: auto;
+      }
+
+      #morepuppies {
+        background-color: greenyellow;
+        height: 50px;
+        text-align: center;
+        position: relative;
+      }
+
+      :link {
+        color: blue;
+      }
+
+      button {
+        background-color: #4caf50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+      }
+
+      input {
+          display: flex;
+          flex-wrap: wrap;
+      }
+
+      @media only screen and (max-width: 1028px) {
+        /* For mobile phones: */
+        [class*="col-"] {
+          width: 100%;
+        }
+        * {
+          background-color: pink;
+        }
+      }
+      
+      @media only screen and (max-width: 768px) {
+        /* For mobile phones: */
+        [class*="col-"] {
+          width: 100%;
+        }
+        * {
+          background-color: yellow;
+        }
+      }
+
+
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <section id="left">
+        <article id="doggo">
+          <img src="https://placedog.net/300/300" alt="Doggo" id="image" />
+          <p id="sydan">💓</p>
+        </article>
+      </section>
+      <section id="right">
+        <aside id="appcard">
+          <h1>MEDIA SHARING APP v1</h1>
+          <ol>
+            <li>Hello</li>
+            <li>world</li>
+            <li><input /></li>
+            <li><button>Cool button</button></li>
+          </ol>
+        </aside>
+      </section>
+    </main>
+    <div id="morepuppies">
+      <h2>See more puppies</h2>
+    </div>
+  </body>
+</html>

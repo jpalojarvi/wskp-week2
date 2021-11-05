@@ -35,6 +35,7 @@ const cat_get = async (req, res, next) => {
 
 const cat_post = async (req, res, next) => {
   try {
+    const vastaus = await catModel.addCat()
     console.log(req.body, req.file);
     res.send('From this endpoint you can add cats.');
   } catch (e) {

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        background-color: lightgreen;
+      }
+
+      .noutaja {
+        width: 500px;
+        height: 500px;
+        background-color: royalblue;
+        object-fit: cover;
+        filter: grayscale();
+      }
+
+      html { 
+  background: url(https://images.pexels.com/photos/586744/pexels-photo-586744.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+      .nappi {
+        background: url(https://icon-library.com/images/free-flower-icon/free-flower-icon-6.jpg);
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+
+      @media only screen and (max-width: 600px) {
+        body {
+          background-color: lightblue;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Resize the browser window. When the width of this document is 600 pixels
+      or less, the background-color is "lightblue", otherwise it is
+      "lightgreen".
+    </p>
+    <div class="nappi">NAPPI</div>
+
+    <div class="kuva">
+      <img
+        class="noutaja"
+        src="https://i.media.fi/incoming/54lzvx-1468298_.JPG/alternates/FREE_1440/1468298_.JPG"
+        alt="noutaja"
+      />
+    </div>
+
+    <!-- <picture>
+      <source
+        srcset="
+          https://www.bellfor.info/image/catalog/Blog/Blog%20Pictures/Cocker%20Spaniel/cocker-spaniel-image.jpg
+        "
+        id="dogo"
+        alt="Cockerspanieli"
+        media="(max-width): 600px"
+      />
+      <source
+        srcset="
+          https://i.media.fi/incoming/54lzvx-1468298_.JPG/alternates/FREE_1440/1468298_.JPG
+        "
+      />
+      <img class="dogo" />
+    </picture> -->
+  </body>
+</html>
