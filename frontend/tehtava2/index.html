@@ -15,6 +15,7 @@
       }
 
       body {
+        height: 100vh;
         margin: 0;
       }
       #left {
@@ -23,9 +24,12 @@
         width: 50%;
         height: 100vh;
         position: relative;
+        justify-content: left;
+        display: flex;
       }
 
       #right {
+        float: right;
         background-color: grey;
         width: 50%;
         height: 100vh;
@@ -61,8 +65,11 @@
       #morepuppies {
         background-color: greenyellow;
         height: 50px;
+        display: flex;
+        justify-content: center;
         text-align: center;
         position: relative;
+        bottom: 50px;
       }
 
       :link {
@@ -82,6 +89,7 @@
 
       input {
           display: flex;
+          width: 100%;
           flex-wrap: wrap;
       }
 
@@ -100,8 +108,18 @@
         [class*="col-"] {
           width: 100%;
         }
+        #left,#right{
+            float:none;
+            width: 100%;
+        }
+        #left {
+            height: 500px;
+        }
         * {
           background-color: yellow;
+        }
+        #morepuppies{
+            display:none;
         }
       }
 
@@ -123,14 +141,14 @@
           <ol>
             <li>Hello</li>
             <li>world</li>
-            <li><input /></li>
-            <li><button>Cool button</button></li>
+            <li><input value="Cool text" /></li>
+            <li><button>Supercool button</button></li>
           </ol>
         </aside>
       </section>
     </main>
     <div id="morepuppies">
-      <h2>See more puppies</h2>
+      <h2>⤋See more puppies⤋</h2>
     </div>
   </body>
 </html>
