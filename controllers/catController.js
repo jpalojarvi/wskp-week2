@@ -1,6 +1,6 @@
 'use strict';
 // catController
-const { getAllCats, getCat, addCat, modifyCat } = require('../models/catModel');
+const { getAllCats, getCat, addCat, modifyCat, deleteCat } = require('../models/catModel');
 const { httpError } = require('../utils/errors');
 
 const cat_list_get = async (req, res, next) => {
@@ -78,9 +78,27 @@ const cat_put = async (req, res, next) => {
   }
 };
 
+const cat_delete = async (req, res, next) => {
+  try {
+    const vastaus = await deleteCat(req.params.id, next);
+    if (vastaus.affectedRows > 0) {
+      res.json({
+        message: 'cat deleted',
+        cat_id: vastaus.insertId,
+      });
+    } else {
+      next(httpError('No cat found', 404));
+    }
+  } catch (e) {
+    console.log('cat_delete error', e.message);
+    next(httpError('internal server error', 500));
+  }
+};
+
 module.exports = {
   cat_list_get,
   cat_get,
   cat_post,
   cat_put,
+  cat_delete,
 };
