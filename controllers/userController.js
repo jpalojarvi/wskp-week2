@@ -43,7 +43,7 @@ const user_post = async (req, res, next) => {
     } else {
       next(httpError('No user inserted', 400));
     }
-  } catch (error) {
+  } catch (e) {
     console.log('user_post error', e.message);
     next(httpError('internal server error', 500));
   }
