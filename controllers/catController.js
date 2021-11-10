@@ -1,6 +1,6 @@
 'use strict';
 // catController
-const { getAllCats, getCat, addCat } = require('../models/catModel');
+const { getAllCats, getCat, addCat, modifyCat } = require('../models/catModel');
 const { httpError } = require('../utils/errors');
 
 const cat_list_get = async (req, res, next) => {
@@ -50,10 +50,10 @@ const cat_post = async (req, res, next) => {
         cat_id: tulos.insertId,
       });
     } else {
-      next(httpError('No user inserted', 400));
+      next(httpError('No cat inserted', 400));
     }
   } catch (e) {
-    console.log('user_post error', e.message);
+    console.log('cat_post error', e.message);
     next(httpError('internal server error', 500));
   }
 };
@@ -63,7 +63,7 @@ const cat_put = async (req, res, next) => {
   // pvm VVVV-KK-PP esim 2010-05-28
   try {
     const { name, birthdate, weight, owner, id } = req.body;
-    const tulos = await addCat(name, weight, owner, birthdate, id, next);
+    const tulos = await modifyCat(name, weight, owner, birthdate, id, next);
     if (tulos.affectedRows > 0) {
       res.json({
         message: 'cat modified',
@@ -73,7 +73,7 @@ const cat_put = async (req, res, next) => {
       next(httpError('No cat modified', 400));
     }
   } catch (e) {
-    console.log('user_post error', e.message);
+    console.log('cat_put error', e.message);
     next(httpError('internal server error', 500));
   }
 };
@@ -82,4 +82,5 @@ module.exports = {
   cat_list_get,
   cat_get,
   cat_post,
+  cat_put,
 };

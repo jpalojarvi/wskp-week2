@@ -27,10 +27,10 @@ const getCat = async (id, next) => {
   }
 };
 
-const addCat = async (name, weight, owner, filename, birthdate, next) => {
+const addCat = async (name, weight, owner, birthdate, filename, next) => {
   try {
     const [rows] = await promisePool.execute(
-      'INSERT INTO wop_cat (name, weight, owner, filename, birthdate) VALUES (?, ?, ?, ?, ?)' 
+      'INSERT INTO wop_cat (name, weight, owner, filename, birthdate) VALUES (?, ?, ?, ?, ?)',
       [name, weight, owner, filename, birthdate]
     );
     return rows;
@@ -40,18 +40,18 @@ const addCat = async (name, weight, owner, filename, birthdate, next) => {
   }
 };
 
-const modifyCat = async (name, weight, owner, birthdate, next) => {
+const modifyCat = async (name, weight, owner, birthdate, cat_id, next) => {
   try {
     const [rows] = await promisePool.execute(
-      "UPDATE wop_cat SET name = ?, weight = ?, owner = ?, birthdate = ? WHERE cat_id = ?;", [
-        name, weight, owner, birthdate]
+      'UPDATE wop_cat SET name = ?, weight = ?, owner = ?, birthdate = ? WHERE cat_id = ?;',
+      [name, weight, owner, birthdate, cat_id]
     );
     return rows;
   } catch (e) {
-    console.error('modifyCat error', e.message);
+    console.error('addCat error', e.message);
     next(httpError('Database error', 500));
   }
-}
+};
 
 module.exports = {
   getAllCats,

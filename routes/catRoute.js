@@ -7,6 +7,7 @@ const {
   cat_list_get,
   cat_get,
   cat_post,
+  cat_put,
 } = require('../controllers/catController');
 const router = express.Router();
 
@@ -16,9 +17,7 @@ router.get('/:id', cat_get);
 
 router.post('/', upload.single('cat'), cat_post);
 
-router.put('/', (req, res) => {
-  res.send('From this endpoint you can modify cats.');
-});
+router.put('/', cat_put);
 
 router.delete('/', (req, res) => {
   res.send('From this endpoint you can delete cats.');
