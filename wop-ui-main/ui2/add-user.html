@@ -20,10 +20,10 @@
         <div class="forms">
             <div class="form-wrapper">
                 <h3>Add user</h3>
-                <form action="http://localhost:3000/user" method="post" class="light-border" id="addUserForm">
-                    <input class="light-border" type="text" name="name" placeholder="Name">
-                    <input class="light-border" type="text" name="email" placeholder="email">
-                    <input class="light-border" type="text" name="passwd" placeholder="Password">
+                <form novalidate action="http://localhost:3000/user" method="post" class="light-border" id="addUserForm">
+                    <input class="light-border" type="text" name="name" placeholder="Name" required minlength="3">
+                    <input class="light-border" type="email" name="email" placeholder="email" required>
+                    <input class="light-border" type="password" name="passwd" placeholder="Password" pattern="(?=.*[A-Z]).{8,}" required>
                     <button class="light-border" type="submit">Save</button>
                 </form>
             </div>
