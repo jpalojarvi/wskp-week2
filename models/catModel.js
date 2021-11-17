@@ -71,5 +71,5 @@ module.exports = {
   getCat,
   addCat,
   modifyCat,
-  deleteCat
+  deleteCat,
 };
