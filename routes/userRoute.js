@@ -16,8 +16,6 @@ router.get('/', user_list_get);
 
 router.get('/:id', user_get);
 
-
-
 router.post(
   '/',
   body('name').isLength({ min: 3 }).escape(),
