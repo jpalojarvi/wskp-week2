@@ -28,17 +28,14 @@ router
     body('name').notEmpty().escape(),
     body('birthdate').isDate(),
     body('weight').isNumeric(),
-    body('owner').isNumeric(),
     cat_post
-  )
-  .put(
-    body('name').notEmpty().escape(),
-    body('birthdate').isDate(),
-    body('weight').isNumeric(),
-    body('owner').isNumeric(),
-    cat_put
   );
 
-router.route('/:id').get(cat_get).delete(cat_delete);
+router.route('/:id').get(cat_get).delete(cat_delete).put(
+  body('name').notEmpty().escape(),
+  body('birthdate').isDate(),
+  body('weight').isNumeric(),
+  cat_put
+);
 
 module.exports = router;
