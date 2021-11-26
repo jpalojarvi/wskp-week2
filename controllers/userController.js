@@ -1,7 +1,7 @@
 'use strict';
 const { validationResult } = require('express-validator');
 // userController
-const { getAllUsers, getUser } = require('../models/userModel');
+const { getAllUsers, getUser, addUser } = require('../models/userModel');
 const { httpError } = require('../utils/errors');
 
 const user_list_get = async (req, res, next) => {
